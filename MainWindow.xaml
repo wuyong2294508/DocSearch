@@ -1,0 +1,48 @@
+﻿<Window x:Class="DocSearch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DocSearch"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Margin="0,20,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Margin="100,0,0,0">工作目录：</Label>
+            <TextBox Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" Name="txtPath"/>
+            <Button Grid.Column="2" Grid.Row="0" Margin="10,0,100,0" Name="btnSelectPath" Click="BtnSelectPath_Click">...</Button>
+
+            <Label Grid.Column="0" Grid.Row="1" Margin="100,10,0,0">关键词：</Label>
+            <TextBox x:Name="txtKeyWord" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" />
+            <Button Grid.Column="2" Grid.Row="1" Margin="10,10,100,0">搜索</Button>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Margin="60,20,60,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox Name="listBoxFileName" Grid.Column="0" Grid.Row="0" SelectionChanged="ListBoxFileName_SelectionChanged"></ListBox>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+            <Border Grid.Column="2" BorderBrush="Gray" BorderThickness="1,1,1,1">
+                <ScrollViewer>
+                    <TextBox Name="txtDisplay" TextWrapping="Wrap"></TextBox>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
